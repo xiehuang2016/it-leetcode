@@ -75,7 +75,7 @@ counts.push(1);
 counts.pop();
 ```
 
-## 常用方法
+## 其他
 
 ```java
 // 整形取值，最好用Long，因为Integer会有范围，部分测试用例可能不能通过
