@@ -34,29 +34,25 @@ public class Hw {
         hw.isValidBSTTest2();
     }
 
+    public long pre = Long.MIN_VALUE;
     /**
      * 二叉搜索树判定
      * 题目要看清楚：左子树只包含小于当前节点的数，只包含，意味着主语是集合
      * https://leetcode-cn.com/problems/validate-binary-search-tree/
      */
     public boolean isValidBST(TreeNode root) {
-        // 遍历，树的遍历，独立树递进遍历 or 前中后序遍历，后者内存占用较小
-        // 遍历树，尤其是有规律的数，优先x序遍历
-        // x序遍历，第一步，先打印出来
-        // 第二步，设置遍历结束条件
-        return traverse(root);
-    }
-
-    public boolean traverse(TreeNode root) {
-        if(root == null) return true;
-        if(root.left != null) {
-            traverse(root.left);
+        // 遍历，树的遍历
+        if(root == null) {
+            return true;
         }
-        System.out.println(root.val);
-        if(root.right != null) {
-            traverse(root.right);
+        if(!isValidBST(root.left)) {
+            return false;
         }
-        return true;
+        if(root.val <= pre) {
+            return false;
+        }
+        pre = root.val;
+        return isValidBST(root.right);
     }
 
     public boolean isValidBST2(TreeNode root) {
@@ -70,7 +66,6 @@ public class Hw {
         if(root.val <= min || root.val >= max) {
             return false;
         }
-        // 递归确实好理解，但是耗内存，不是最佳方案
         return isValidBST2(root.left, min, root.val) && isValidBST2(root.right, root.val, max);
     }
 
@@ -95,7 +90,7 @@ public class Hw {
         five.right = six;
         six.left = three;
         six.right = seven;
-        System.out.println(isValidBST(root1));
+        System.out.println(isValidBST2(root1));
     }
 
     /**
