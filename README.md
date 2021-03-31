@@ -35,7 +35,9 @@ for(int i=0; i<s.length(); i++) {
 ```java
 // 初始化 数组
 int[] keyValue = {1, 2};
-
+// 初始化 数组 int默认0,boolean默认false
+int[] array = new int[5];
+boolean[] booleanArray = new boolean[3]
 int[] people;
 // 排序 默认数组元素 进行升序排序
 Arrays.sort(people);
@@ -105,6 +107,7 @@ long upper,lower;
 - 题目是给开发工程师看的，对题目文字要敏感，比如包含于 表示 主语一般是主集合
 - 遍历的时候，容易弄错left,right
 - 递归的时候，容易copy带来低级错误
+- **数组下标，不易理解时，先按实际的下标设值，取值是-1即可**
 
 
 

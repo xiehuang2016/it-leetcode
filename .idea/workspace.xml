@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d35a37d-1016-4d99-9346-8dd01d83b7ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hhh/Hw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hhh/Hw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/it-leetcode.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hhh/Hw$TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hhh/Hw$TreeNode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/hhh/Hw.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hhh/Hw.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -158,6 +157,9 @@
       <workItem from="1616723994602" duration="591000" />
       <workItem from="1616979154211" duration="17069000" />
       <workItem from="1617011086153" duration="3003000" />
+      <workItem from="1617071896408" duration="10734000" />
+      <workItem from="1617157274189" duration="631000" />
+      <workItem from="1617158153741" duration="13351000" />
     </task>
     <servers />
   </component>
@@ -169,7 +171,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

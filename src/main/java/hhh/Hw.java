@@ -1,8 +1,6 @@
 package hhh;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author xiehuang 11108901
@@ -31,8 +29,118 @@ public class Hw {
 
         // 二叉搜索树判定
 //        hw.isValidBSTTest();
-        hw.isValidBSTTest2();
+//        hw.isValidBSTTest2();
+
+        // 不相邻约束条件求最值 等同于 leetcode 打家劫舍问题 https://leetcode-cn.com/problems/house-robber/
+//        hw.touristTest();
+
+        // 和为0的最长子数组长度， https://zhuanlan.zhihu.com/p/84708840
+        // 类似题目 https://leetcode-cn.com/problems/subarray-sum-equals-k/
+//        hw.subArraySumZeroTest();
+
+        hw.subArraySumTest();
+
     }
+
+    // 稍微通用一点的题目，k为其他值
+    private void subArraySumTest() {
+        int[] nums0 = {1,-1,5,-2,3};
+        System.out.println(4 == subArraySum(nums0, 3));
+    }
+
+    private void subArraySumZeroTest() {
+        int[] nums0 = {1,1,1,1};
+        System.out.println(0 == subArraySumZero(nums0));
+        int[] nums1 = {1,0,-1,1};
+        System.out.println(3 == subArraySumZero(nums1));
+        int[] nums2 = {1,0,1,0,-1,-1,1,-1,1};
+        System.out.println(8 == subArraySumZero(nums2));
+        int[] nums3 = {1,0,1,1};
+        System.out.println(1 == subArraySumZero(nums3));
+        int[] nums4 = {0,0,0,0};
+        System.out.println(4 == subArraySumZero(nums4));
+    }
+
+    public int subArraySumZero(int[] nums) {
+        return subArraySum(nums, 0);
+    }
+
+    public int subArraySum(int[] nums, int k) {
+        // 思路： 子连续数据之和 遍历方式，可以得到暴力破解法
+        // 好的数据结构，数据和，哈希表优化, 含义按现实的含义（不从0算起，只是计算数组取值时从0取）
+        // key-元素个数，0表示没有元素个数，1代表第一个（不从0算起）
+        // value-目标函数，最长子数组长度，Math.max更新
+        HashMap<Integer, Integer> res = new HashMap<>();
+        res.put(0, 0);
+        int ans = 0;
+        int preSum = 0;
+        int diffSum;
+        for(int i=1; i<nums.length + 1; i++) {
+            preSum += nums[i-1];
+            if(!res.containsKey(preSum)) {
+                res.put(preSum, i);
+            }
+            diffSum = preSum - k;
+            if(res.containsKey(diffSum)) {
+                ans = Math.max(ans, i - res.get(diffSum));
+            }
+        }
+        return ans;
+    }
+
+    public int subArraySum2(int[] nums, int k) {
+        // 思路： 子连续数据之和 遍历方式，可以得到暴力破解法
+        // 好的数据结构，数据和，哈希表优化, 含义按程序的含义（从0算起），不是很好理解
+        // key-元素个数，1代表第0个（不从0算起），需要虚构一个0的值，顺推得到0,-1
+        // value-目标函数，最长子数组长度，Math.max更新
+        HashMap<Integer, Integer> res = new HashMap<>();
+        res.put(0, -1);
+        int ans = 0;
+        int preSum = 0;
+        int diffSum;
+        for(int i=0; i<nums.length; i++) {
+            preSum += nums[i];
+            if(!res.containsKey(preSum)) {
+                res.put(preSum, i);
+            }
+            diffSum = preSum - k;
+            if(res.containsKey(diffSum)) {
+                ans = Math.max(ans, i - res.get(diffSum));
+            }
+        }
+        return ans;
+    }
+
+    public void touristTest() {
+        int[] nums = {20, 2, 16, 18, 1};
+        int res = tourist(nums);
+        System.out.println(38 == res);
+    }
+
+    /**
+     * 不相邻，求接收最多人数
+     * @param nums 每个景区人数
+     * @return
+     */
+    public int tourist(int[] nums) {
+        int n = nums.length;
+        if(n == 1) {
+//            if(nums[0] <= 0 || nums[0] > 20) {
+//                System.err.println("景区人数参数不在规定区间(0,20]");
+//            }
+            return nums[0];
+        }
+        if(n == 2) {
+            return Math.max(nums[0], nums[1]);
+        }
+        // 动态规划 缓存数组 思路: 设置目标函数，列出递归函数
+        int[] dp = {nums[0], Math.max(nums[0], nums[1])};
+        for(int i=2; i<n; i++) {
+            dp[(i%2)] = Math.max(dp[(i-1)%2], dp[(i-2)%2] + nums[i]);
+        }
+        return dp[((n-1)%2)];
+    }
+
 
     public long pre = Long.MIN_VALUE;
     /**
