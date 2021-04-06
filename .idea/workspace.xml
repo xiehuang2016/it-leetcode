@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hhh/Hw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hhh/Hw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hhh/Hw$TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hhh/Hw$TreeNode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/hhh/Hw.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hhh/Hw.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,7 +53,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Hw">
+  <component name="RunManager" selected="Application.Leetcode">
     <configuration name="FindLeastNumOfUniqueInts" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="example.map.FindLeastNumOfUniqueInts" />
       <module name="it-leetcode" />
@@ -68,12 +67,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FindLength" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="example.array.FindLength" />
+    <configuration name="Hw" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hhh.Hw" />
       <module name="it-leetcode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="example.array.*" />
+          <option name="PATTERN" value="hhh.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -81,8 +80,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Hw" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hhh.Hw" />
+    <configuration name="Leetcode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hhh.Leetcode" />
       <module name="it-leetcode" />
       <extension name="coverage">
         <pattern>
@@ -122,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Leetcode" />
         <item itemvalue="Application.Hw" />
         <item itemvalue="Application.RemoveDuplicates" />
         <item itemvalue="Application.NumRescueBoats" />
         <item itemvalue="Application.FindLeastNumOfUniqueInts" />
-        <item itemvalue="Application.FindLength" />
       </list>
     </recent_temporary>
   </component>
@@ -160,6 +159,11 @@
       <workItem from="1617071896408" duration="10734000" />
       <workItem from="1617157274189" duration="631000" />
       <workItem from="1617158153741" duration="13351000" />
+      <workItem from="1617194538949" duration="310000" />
+      <workItem from="1617195533586" duration="864000" />
+      <workItem from="1617244205569" duration="5354000" />
+      <workItem from="1617324995447" duration="4502000" />
+      <workItem from="1617670384883" duration="644000" />
     </task>
     <servers />
   </component>

@@ -202,12 +202,14 @@ public class Hw {
     }
 
     /**
-     * 完全匹配的最长子字符串长度
+     * 完全匹配的最长子字符串长度 最长公共子串
+     * 扩展 最长公共子序列 https://leetcode-cn.com/problems/longest-common-subsequence/
      */
     public int maxSubStringLength(String str1, String str2) {
         // 遍历思路，滑动窗口，过程复杂，暂时不用
         // 递归思路，完全匹配的最长子串，必定满足其顺序子串也满足完全匹配，完全匹配的特点是包含
         String minStr, maxStr;
+        Deque<Integer> stack = new LinkedList<Integer>();
         if(str1.length() < str2.length()) {
             minStr = str1;
             maxStr = str2;
