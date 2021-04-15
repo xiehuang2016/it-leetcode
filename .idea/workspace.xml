@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3d35a37d-1016-4d99-9346-8dd01d83b7ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hhh/Leetcode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hhh/Leetcode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hhh/Hw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hhh/Hw.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/md/Redis.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/md/Redis.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/md/基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/md/基础.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/md/netty.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/md/netty.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hhh/Hw.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hhh/Hw.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hhh/Leetcode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hhh/Leetcode.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,13 +55,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Leetcode">
-    <configuration name="FindLeastNumOfUniqueInts" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="example.map.FindLeastNumOfUniqueInts" />
+  <component name="RunManager" selected="Application.NumRescueBoats">
+    <configuration name="FindLength" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="example.array.FindLength" />
       <module name="it-leetcode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="example.map.*" />
+          <option name="PATTERN" value="example.array.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -121,11 +123,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.NumRescueBoats" />
+        <item itemvalue="Application.FindLength" />
         <item itemvalue="Application.Leetcode" />
         <item itemvalue="Application.Hw" />
         <item itemvalue="Application.RemoveDuplicates" />
-        <item itemvalue="Application.NumRescueBoats" />
-        <item itemvalue="Application.FindLeastNumOfUniqueInts" />
       </list>
     </recent_temporary>
   </component>
@@ -166,6 +168,7 @@
       <workItem from="1617670384883" duration="644000" />
       <workItem from="1618278496709" duration="604000" />
       <workItem from="1618363414643" duration="595000" />
+      <workItem from="1618470551070" duration="3863000" />
     </task>
     <servers />
   </component>

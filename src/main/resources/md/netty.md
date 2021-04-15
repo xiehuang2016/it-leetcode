@@ -59,6 +59,13 @@ select , poll, epoll，为什么epoll更佳
 
 
 
+#### NioEventLoopGroup 默认的构造函数会起多少线程
+
+- `NioEventLoopGroup` 默认的构造函数实际会起的线程数为 **`CPU核心数\*2`**
+  - 每个`NioEventLoopGroup`对象内部都会分配一组`NioEventLoop`，其大小是 `nThreads`, 这样就构成了一个线程池， 一个`NIOEventLoop` 和一个线程相对应
+
+
+
 ### Netty线程模型
 
 Netty网络框架，跟大部分网络框架一样，都是基于**Reactor线程模型**

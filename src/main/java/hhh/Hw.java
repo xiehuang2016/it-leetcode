@@ -25,18 +25,18 @@ public class Hw {
         Hw hw = new Hw();
 
 //        // 最长子字符串
-//        hw.maxSubStringLengthTest();
+        hw.maxSubStringLengthTest();
 
         // 二叉搜索树判定
-//        hw.isValidBSTTest();
-//        hw.isValidBSTTest2();
+        hw.isValidBSTTest();
+        hw.isValidBSTTest2();
 
         // 不相邻约束条件求最值 等同于 leetcode 打家劫舍问题 https://leetcode-cn.com/problems/house-robber/
-//        hw.touristTest();
+        hw.touristTest();
 
         // 和为0的最长子数组长度， https://zhuanlan.zhihu.com/p/84708840
         // 类似题目 https://leetcode-cn.com/problems/subarray-sum-equals-k/
-//        hw.subArraySumZeroTest();
+        hw.subArraySumZeroTest();
 
         hw.subArraySumTest();
 
