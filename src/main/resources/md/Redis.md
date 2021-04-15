@@ -26,6 +26,18 @@ Redis 被广泛应用于**缓存**方向，也经常用来做**分布式锁**，
 
 
 
+### LRU算法自实现基本逻辑
+
+LRU：最近最少使用
+基本思路：获取刷新，设置刷新，列满移除
+结构
+双map
+一个map存key，value，实现查询时间O(1)
+另一个存node，实现定位节点并删除O(1)
+linkedlist 存放节点数据，记录阈值，除开linked原有功能，将node对象从私有变为公有，新增插入返回节点，显示删除节点的功能
+
+
+
 ### 常见数据结构
 
 - string；string 数据结构是简单的 key-value 类型，场景：一般常用在需要计数的场景，比如用户的访问次数、热点文章的点赞转发数量、分布式锁等等
@@ -88,3 +100,107 @@ typedef struct redisDb {
 
 
 
+### redis 哨兵模式 vs 集群模式 
+
+redis部署的发展演变过程 https://www.cnblogs.com/zhonglongbo/p/13128955.html
+
+- 单机模式，
+- 主从复制（读写主节点，读从节点，主到从单向同步复制），高性能
+- 哨兵模式，解决主从复制的主节点宕机故障；高可用，但是难支持在线扩容
+  - 增加了哨兵集群，哨兵集群不保存数据，客户端通过哨兵集群访问redis数据，解决故障转移；还有主从存活检测，主从运行情况检测，主从切换
+  - 在主从基础上，哨兵实现自动化的故障恢复
+- 集群模式
+  - 集群的键空间被分割为16384个slots（即hash槽），通过hash的方式将数据分到不同的分片上的
+  - 分片对应也是主从复制模式
+
+
+
+### Redis分布式锁，为什么使用setnx，会有什么问题？
+
+最常见的还是redis分布式锁，更推荐使用Zookeeper提供的分布式锁
+
+#### zk分布式锁
+
+Apache Curator是一个比较完善的Zookeeper客户端框架
+
+- 封装ZooKeeper client与ZooKeeper server之间的连接处理
+- 提供了一套Fluent风格的操作API
+- 提供ZooKeeper各种应用场景(比如：**分布式锁服务、集群领导选举、共享计数器、缓存机制、分布式队列**等)的抽象封装
+
+https://www.cnblogs.com/erbing/p/9799098.html
+
+https://zhuanlan.zhihu.com/p/111354065
+
+https://www.cnblogs.com/haoxinyue/p/6561896.html（blog很好）
+
+https://zhuanlan.zhihu.com/p/150127393（偏向实践）
+
+Curator提供了InterProcessMutex类来帮助我们实现分布式锁，其内部就是使用的**EPHEMERAL_SEQUENTIAL**类型节点
+
+> 在 ZooKeeper 中，节点类型可以分为持久节点（PERSISTENT ）、临时节点（EPHEMERAL），以及时序节点（SEQUENTIAL ），具体在节点创建过程中，一般是组合使用，可以生成以下 4 种节点类型。不同的组合可以应用到不同的业务场景中
+>
+> - 持久化节点
+> - 临时节点
+> - 持久化时序节点
+> - 临时时序节点
+
+**acquire()方法**，会在给定的路径下面创建临时时序节点的时序节点。然后它会和父节点下面的其他节点比较时序。如果客户端创建的临时时序节点的数字后缀最小的话，则获得该锁，函数成功返回。如果没有获得到，即，创建的临时节点数字后缀不是最小的，则启动一个watch监听上一个（排在前面一个的节点）。主线程使用object.wait()进行等待，等待watch触发的线程notifyAll()，一旦上一个节点有事件产生马上再次出发时序最小节点的判断。
+
+**release()方法**就是释放锁，内部实现就是删除创建的EPHEMERAL_SEQUENTIAL节点
+
+
+
+#### redis实现分布式锁
+
+- setnx
+- redisson
+- redLock
+
+在 Redis 里，所谓 [SETNX](http://www.redis.io/commands/setnx)，是「**SET** if **N**ot e**X**ists」的缩写，也就是只有不存在的时候才设置，并非单指setnx这个命令，这个命令在redis2.6.12后不建议使用
+
+> SET key value [EX seconds|PX milliseconds] [NX|XX] [KEEPTTL]
+>
+> - `EX` *seconds* -- Set the specified expire time, in seconds.
+> - `PX` *milliseconds* -- Set the specified expire time, in milliseconds
+>
+> - `NX` -- Only set the key if it does not already exist.
+> - `XX` -- Only set the key if it already exist.
+> - `KEEPTTL` -- Retain the time to live associated with the key.
+
+对应的工具方法set或者setIfAbsent
+
+setnx问题：不可重入；进程A拿到后崩了，死锁；超时问题等等
+
+超时，守护线程watch dog 动态续期，这个也是Redisson的解决方式
+
+Redisson是**java的redis客户端之一**，提供了一些api方便操作redis，包括**RedissonLock**这个类，源码中**加锁/释放锁**操作都是用**lua**脚本完成的，封装的非常完善，开箱即用。
+
+redLock是redis官方提出的一种分布式锁的**算法**，Redisson中，就实现了redLock版本的锁，避免了redis异步复制造成的锁丢失
+
+> 对于可靠性，多数文章会告诉你zk锁比Redis锁更可靠，毕竟zk是专业做分布式协调服务的，实际情况是：无论是Redis锁还是zk锁，亦或是基于etcd, consul等实现的分布式锁，都回避不了同一个问题：**持有锁的进程A在处理业务的过程中，同一把锁有可能在A不知情的情况下被进程B拿走**
+>
+> 分布式系统有几个无法回避的问题，我把它们**称为NPC问题**，N主要指Network delay网络延迟，P是指Process pause进程暂停，C指代Clock drift时钟漂移**
+>
+> 以进程暂停为例，进程A刚刚拿到分布式锁，然后因为GC等原因进程被冻结暂停，过去1分钟之后，分布式锁超时了，进程B顺利抢到同一把锁，接下来进程A的GC结束了。好了，现在俩进程都觉得自己是锁的唯一持有人，然后开始快乐的编辑数据。
+>
+> 解决这个问题最简单的办法是**使用fencing token，也就是获取锁的时候，同步创建一个自增的全局唯一id**，同时数据库中会记录最后一次碰见的全局唯一id。这样，当修改数据时，数据库原子性的比较进程提供的全局唯一id是不是最大的，如果不是，说明该进程持有的锁已经过期了。
+>
+> 如果是使用zk的话，可以使用zxid作为全局唯一id
+>
+> https://www.zhihu.com/question/452803310/answer/1816290814
+>
+> https://mp.weixin.qq.com/s/hOPT41HIAGE8iZ5jLlREmg
+
+
+
+
+
+#### redis有哪些基本数据类型，用到了哪些数据结构，怎么理解跳表
+
+跳表可以看出类似二叉树的一种结构，什么时候新增一层？
+
+
+
+#### mongodb是真正的内存数据库，与redis一样？
+
+不一样，mongoDB是关系映射型数据库，真正的数据还是存储在文件中

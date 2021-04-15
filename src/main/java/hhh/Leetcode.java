@@ -1,7 +1,6 @@
 package hhh;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -14,9 +13,6 @@ public class Leetcode {
         Leetcode leetcode = new Leetcode();
         // 全排测试
 //        leetcode.permuteTest();
-
-        
-
     }
 
     private void permuteTest() {

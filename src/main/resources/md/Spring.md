@@ -57,6 +57,8 @@ xml -> Resource -> BeanDefinition -> BeanFactory
 
 AOP(Aspect-Oriented Programming:面向切面编程)，**业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来**，便于**减少系统的重复代码**，**降低模块间的耦合度**，并**有利于未来的可拓展性和可维护性**。
 
+> Spring AOP指什么，JDK proxy实现动态代理，cglib实现有啥区别，Aspectj又是啥
+
 **Spring AOP就是基于动态代理的**，使用JDK Proxy(基于接口)，Cglib(基于类)，也可以使用AspectJ ，Spring AOP 已经集成了AspectJ，AspectJ是 Java 生态系统中最完整的 AOP 框架。
 
 **Spring AOP 属于运行时增强，而 AspectJ 是编译时增强。** Spring AOP 基于代理(Proxying)，而 AspectJ 基于字节码操作(Bytecode Manipulation)
@@ -135,6 +137,14 @@ AOP(Aspect-Oriented Programming:面向切面编程)，**业务模块所共同调
 - **包装器设计模式** : 我们的项目需要连接多个数据库，而且不同的客户在每次访问中根据需要会去访问不同的数据库。这种模式让我们可以根据客户的需求能够动态切换不同的数据源。
 - **观察者模式:** Spring 事件驱动模型就是观察者模式很经典的一个应用。
 - **适配器模式** :Spring AOP 的增强或通知(Advice)使用到了适配器模式、spring MVC 中也是用到了适配器模式适配`Controller`。
+
+#### 设计模式，策略设计模式
+
+根据入参，选择对应的实现类，抽象接口Strategy，具体策略实现类StrategyImpl多个
+
+相比动态代理来说，把策略选择的逻辑是封装了一层StrategyContext，具体的实现作为成员属性传递
+
+https://www.cnblogs.com/yefengyu/p/10527350.html
 
 
 
