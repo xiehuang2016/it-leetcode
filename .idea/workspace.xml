@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d35a37d-1016-4d99-9346-8dd01d83b7ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hhh/Hw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hhh/Hw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/md/Redis.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/md/Redis.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/md/netty.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/md/netty.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hhh/Hw.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hhh/Hw.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hhh/Leetcode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hhh/Leetcode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/Redis.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/Spring Boot.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/Spring.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/leetcode.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/netty.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/基础.pdf" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -169,6 +169,7 @@
       <workItem from="1618278496709" duration="604000" />
       <workItem from="1618363414643" duration="595000" />
       <workItem from="1618470551070" duration="3863000" />
+      <workItem from="1618825889200" duration="607000" />
     </task>
     <servers />
   </component>
