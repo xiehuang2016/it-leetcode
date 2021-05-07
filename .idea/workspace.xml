@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d35a37d-1016-4d99-9346-8dd01d83b7ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/Redis.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/Spring Boot.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/Spring.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/leetcode.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/netty.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/基础.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/md/MQ.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/md/MQ.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/md/MySQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/md/MySQL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/md/Redis.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/md/Redis.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/md/基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/md/基础.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/example/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/example/Application.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +56,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.NumRescueBoats">
+  <component name="RunManager" selected="Application.Application">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="example.Application" />
+      <module name="it-leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FindLength" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="example.array.FindLength" />
       <module name="it-leetcode" />
@@ -108,26 +122,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RemoveDuplicates" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="example.string.RemoveDuplicates" />
-      <module name="it-leetcode" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="example.string.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Application" />
         <item itemvalue="Application.NumRescueBoats" />
         <item itemvalue="Application.FindLength" />
         <item itemvalue="Application.Leetcode" />
         <item itemvalue="Application.Hw" />
-        <item itemvalue="Application.RemoveDuplicates" />
       </list>
     </recent_temporary>
   </component>
@@ -170,6 +171,9 @@
       <workItem from="1618363414643" duration="595000" />
       <workItem from="1618470551070" duration="3863000" />
       <workItem from="1618825889200" duration="607000" />
+      <workItem from="1618988115566" duration="2320000" />
+      <workItem from="1620267345928" duration="673000" />
+      <workItem from="1620354394238" duration="342000" />
     </task>
     <servers />
   </component>

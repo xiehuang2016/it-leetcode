@@ -63,3 +63,9 @@ mysql在rr隔离级别下一定程度上解决了幻读问题。 由于innodb引
 在当前读的情况下，mysql通过配置可以采用记录锁(Record Lock)+间隙锁(Gap Lock)，让其他插入或删除事务死锁，达到解决幻读问题。select ... lock in share mode, select ... for update
 
 在快照读（普通读）的情况下，mysql如果不更新插入记录，那么由于是读取的旧版本记录，对于其他事务插入数据不可见，从而达到了解决幻读问题。但是如果当前事务更新记录(包括不可见的)，会去读取最新版本内容，从而看到了其他事务插入的数据，产生幻读
+
+
+
+### Seata 分布式事务
+
+http://www.dreamwu.com/post-1741.html
